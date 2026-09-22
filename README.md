@@ -237,4 +237,4 @@ The scripts are designed for local processing, but transcription quality still d
 
 ## License / 许可证
 
-本项目暂未指定许可证。公开发布到 GitHub 前，请根据你的使用场景选择并添加合适的 LICENSE 文件，例如 MIT、Apache-2.0 或 GPL-3.0。 / No license is selected yet. Before publishing to GitHub, choose and add an appropriate LICENSE file, such as MIT, Apache-2.0, or GPL-3.0.
+本项目采用 MIT License，详见仓库根目录下的 `LICENSE` 文件。 / This project is licensed under the MIT License. See the `LICENSE` file in the repository root for details.
