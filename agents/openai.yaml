@@ -1,0 +1,4 @@
+interface:
+  display_name: "课程媒体转PDF"
+  short_description: "将本地视频音频课程批量转写、润色并排版成带目录的PDF教程"
+  default_prompt: "将指定目录下的视频和音频课程批量转写成中文文本，保守润色后整理成带章节目录、页码和校验结果的PDF教程。"
