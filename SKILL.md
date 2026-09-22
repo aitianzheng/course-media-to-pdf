@@ -37,7 +37,7 @@ Use stable, descriptive output names. Put generated deliverables under the works
 
 ## Helpers
 
-- Read `references/usage.md` when choosing commands, models, or output layouts.
+- Read `references/usage.md` when choosing commands, models, output layouts, or integrating the skill into Codex/Claude Code.
 - Run `scripts/batch_transcribe.sh` for media-to-text.
 - Run `scripts/polish_transcripts.py` for conservative wording cleanup.
 - Run `scripts/build_course_pdf.py` for the final searchable PDF.

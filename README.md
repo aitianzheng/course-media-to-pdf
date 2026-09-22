@@ -235,6 +235,50 @@ openasr --help
 
 The scripts are designed for local processing, but transcription quality still depends on the recording, speaker, language, and model. Always review important passages against the original media before publishing or making decisions based on them.
 
+## 在 Codex / Claude Code 中使用 / Use in Codex or Claude Code
+
+### 安装 Skill / Install the skill
+
+请克隆整个仓库；不要只复制 `SKILL.md`，因为批处理脚本和参考文档也需要保留。 / Clone the whole repository rather than copying only `SKILL.md`, because the helper scripts and references are part of the skill.
+
+Codex 用户级安装 / Codex user-level installation:
+
+```bash
+git clone https://github.com/aitianzheng/course-media-to-pdf.git \
+  ~/.agents/skills/course-media-to-pdf
+```
+
+也可以将仓库放在当前项目的 `.agents/skills/course-media-to-pdf/`，使它只对该项目可用。启动或刷新 Codex 后，运行 `/skills` 查看可用 Skill，并用 `$course-media-to-pdf` 显式调用；也可以直接描述任务，让 Codex 根据 `SKILL.md` 的 `description` 自动选择。 / You can also place it at `.agents/skills/course-media-to-pdf/` in a repository to scope it to that project. After starting or refreshing Codex, run `/skills` to inspect available skills and use `$course-media-to-pdf` for explicit invocation, or describe the task naturally for automatic selection based on the `description` in `SKILL.md`.
+
+Claude Code 用户级安装 / Claude Code user-level installation:
+
+```bash
+git clone https://github.com/aitianzheng/course-media-to-pdf.git \
+  ~/.claude/skills/course-media-to-pdf
+```
+
+如果只想在某个项目中使用，可放在该项目的 `.claude/skills/course-media-to-pdf/`。在 Claude Code 中输入 `/course-media-to-pdf` 可显式调用，也可以直接描述批量转写和生成 PDF 的需求，让 Claude Code 根据 Skill 的 `description` 自动加载。 / For project-only use, place it at `.claude/skills/course-media-to-pdf/`. In Claude Code, type `/course-media-to-pdf` to invoke it explicitly, or describe the transcription and PDF task naturally so Claude Code can load it from the skill `description`.
+
+> 注意 / Note: Claude Code 使用 Skill 目录名作为斜杠命令名，因此目录名应保持为 `course-media-to-pdf`。 / Claude Code derives the slash command from the skill directory name, so keep the directory name as `course-media-to-pdf`.
+
+### 调用示例 / Example prompts
+
+Codex:
+
+```text
+$course-media-to-pdf
+请处理 /path/to/course-media 下的全部视频和音频，使用 qwen3-asr-1.7b；完成保守润色，并生成带章节目录的可搜索 PDF。
+```
+
+Claude Code:
+
+```text
+/course-media-to-pdf
+请处理 /path/to/course-media 下的全部视频和音频，使用 qwen3-asr-1.7b；完成保守润色，并生成带章节目录的可搜索 PDF。
+```
+
+无论使用哪种 Agent，都需要先完成本机依赖安装，并确保 `openasr`、`ffmpeg`、Python 的 `reportlab`/`pypdf` 可用。Skill 只编排本地命令，不会自动上传媒体文件。 / With either agent, install the local dependencies first and ensure `openasr`, `ffmpeg`, and Python's `reportlab`/`pypdf` are available. The skill orchestrates local commands and does not automatically upload media files.
+
 ## License / 许可证
 
 本项目采用 MIT License，详见仓库根目录下的 `LICENSE` 文件。 / This project is licensed under the MIT License. See the `LICENSE` file in the repository root for details.
